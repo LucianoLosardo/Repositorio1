@@ -1,0 +1,32 @@
+
+package views
+
+templ ClientForm() {
+	// Añadi los atributos hx-post, hx-target y hx-swap para enviar el formulario, el nuevo cliente se agrega al final de la lista(beforeend)
+	<form
+		hx-post="/clientes"
+		hx-target="#tablaClientes"
+		hx-swap="outerHTML"
+		hx-on::after-request="
+    		alert('Cliente creado exitosamente');
+    		this.reset();
+			document.querySelector('#tablaClientes').scrollIntoView({ behavior: 'smooth' });
+		"
+		class="formulario"
+		id="formCliente"
+	>
+		<h2>Agregar nuevo cliente</h2>
+		<div class="formElement">
+			<label>Email:</label>
+			<input type="email" name="email" placeholder="ejemplo@ejemplo.com" required><br>
+		</div>
+
+		<div class="formElement">
+			<label>Contraseña:</label>
+			<input type="password" name="password" required><br>
+		</div>
+
+		<button type="submit">Enviar</button>
+	</form>
+
+}

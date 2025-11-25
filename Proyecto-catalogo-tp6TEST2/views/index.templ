@@ -1,0 +1,12 @@
+package views 
+
+import bd "catalogo.com/proyecto-catalogo/bd/sqlc"
+
+templ IndexPage(clientes []bd.Cliente, articulos []bd.Articulo) {
+    @HTML([]templ.Component{
+        ClientList(clientes),
+        ArticuloList(articulos),
+        ClientForm(),
+        ArticuloForm(),
+    })
+}

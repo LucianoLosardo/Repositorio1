@@ -1,0 +1,39 @@
+package views
+
+import (bd "catalogo.com/proyecto-catalogo/bd/sqlc"
+"strconv"
+)
+
+templ ClientList(clientes []bd.Cliente) {
+    <div class="containerTabla" id="tablaClientes">
+        <h2>Clientes</h2> 
+        <table class="tabla"> 
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Email</th>
+                    <th>Password</th>
+                    <th>Eliminar</th>
+                </tr>
+            </thead>
+            <tbody>
+                for _, cliente := range clientes {
+                        <tr class="fila">
+                            <td>{ cliente.ID }</td>
+                            <td>{ cliente.Email }</td>
+                            <td>{ cliente.Password }</td>
+                            <td>
+                                <button hx-delete={"/clientes/" + strconv.Itoa(int(cliente.ID))}
+                                        hx-confirm="¿Seguro que querés eliminar este artículo?"
+                                        hx-target="#tablaClientes" 
+                                        hx-swap="outerHTML" 
+                                        type="submit" 
+                                        class="btnEliminar">Eliminar</button>
+                            </td>
+                        </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+}
+

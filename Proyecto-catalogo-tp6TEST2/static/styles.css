@@ -1,0 +1,212 @@
+
+/*********************************************/
+/*******************GLOBAL********************/
+/*********************************************/
+* { /*borra los márgenes por defecto de los elementos*/
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /*background-color: #aaa4ad;*/
+}
+/*********************************************/
+/*******************GLOBAL********************/
+/*********************************************/
+
+
+
+/********************************************/
+/*******************HEADER*******************/
+/********************************************/
+header {
+    background-color: #4f4b6e;   
+    padding: 20px ;
+    border-bottom: 3px solid #d4d4d4;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 15px;
+}
+
+.container-nombre {
+    margin-right: auto;
+
+    text-align: left;
+    margin-left: 20px;
+}
+
+/* titulo del header */
+header h1 {
+    margin: 0;
+    font-size: 33px;
+    font-weight: 700;
+    color: #ffffff;
+}
+
+header h2 {
+    margin: 5px;
+    font-size: 20px;
+    font-weight: normal;
+    color: #c0c0c0;
+}
+
+/* Contenedor de links */
+header .links {
+    display: flex;
+    gap: 5px;
+    margin: 30px;
+}
+
+/* Links del header */
+header .links a {
+    text-decoration: none;
+    padding: 14px 16px;
+    background-color: #4f4b6e; 
+    color: white;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    font-weight: light;
+    border-left: 2px solid #d4d4d4;
+    border-bottom: 2px solid #d4d4d4;
+    border-radius: 30px;
+    font-family: Arial, Helvetica, sans-serif;
+    letter-spacing: -0.5px;
+
+}
+
+/* hover*/
+header .links a:hover {
+    background-color: #6a5587;
+    transform: scale(1.05);
+}
+
+/********************************************/
+/*****************FIN HEADER*****************/
+/********************************************/
+
+
+
+
+/********************************************/
+/********************BODY********************/
+/********************************************/
+#body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+/********************************************/
+/******************FIN BODY******************/          
+/********************************************/
+
+
+/********************************************/
+/***************FORMULARIOs******************/
+/********************************************/
+.formulario{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;             
+    max-width: 800px;      
+    margin: 60px;
+    padding-left: 40px;
+    padding-right: 40px;
+    padding-bottom: 20px;
+    padding-top: 20px;
+    border-radius: 10px;
+    padding: 20px;
+    background-color: #f0f0f0;
+    border-radius: 10px;
+}
+
+.formElement {
+    display: flex;
+    flex-direction: column; /* label encima del input */
+    background-color: #f0f0f0;
+}
+
+.formulario input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1em;
+    background-color: #ffffff;
+}
+
+.formulario button {
+    padding: 12px;
+    background-color: #4f4b6e;
+    color: white;
+    font-size: 1em;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.formulario button:hover {
+    background-color: #6a5587;
+}
+
+/********************************************/
+/*************FIN FORMULARIOs****************/
+/********************************************/
+
+
+/********************************************/
+/*******************TABLAS*******************/
+/********************************************/
+.containerTabla {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;             
+    max-width: 800px;      
+    margin: 60px;
+    border-radius: 10px;
+    padding: 20px;
+    background-color: #f0f0f0;
+}
+
+th{
+    text-align: left;
+    background-color: #4f4b6e;
+    color: white;
+    padding: 10px;
+    border-radius: 10px;
+    font-family: Arial, sans-serif;
+    font-weight: normal;
+}
+
+ td{
+    margin:20px;
+    border-color: black;
+    border-width: 2px; 
+    border-radius: 10px;
+    background-color: white;
+    padding: 20px;
+}
+
+.containerTabla h2 {
+    padding: 0;
+    margin: 0;
+}
+
+
+/* imagen prolija */
+.imagen-articulo {
+    width: 80px;
+    height: 80px;
+    border-radius: 10px;
+}
+
+/*boton de eliminar de la lista*/
+.btnEliminar {
+    background: rgb(151, 27, 52);
+    color: white;
+    padding: 6px 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+.btnEliminar:hover {
+    background: rgb(77, 13, 13);
+}

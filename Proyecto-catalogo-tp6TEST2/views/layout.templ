@@ -1,0 +1,33 @@
+package views   
+
+templ HTML(contents []templ.Component) {
+    <!DOCTYPE html>
+    <html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <title>CR - Objetos de deco </title>
+        <link rel="stylesheet" href="/static/styles.css">
+        <script src="https://cdn.jsdelivr.net/npm/htmx.org@2.0.8/dist/htmx.min.js"></script>
+    </head>
+    <header>
+        <div class="container-nombre">
+            <h1>Objetos de decoración</h1>
+            <h2>by Camila Rojo</h2>
+        </div>
+        <div class="links">
+            <a href="#tablaClientes">Lista de clientes</a>
+            <a href="#tablaArticulos">Lista de artículos</a>
+            <a href="#formCliente">Insertar cliente</a>
+            <a href="#formArticulo">Insertar artículo</a>
+        </div>
+
+    </header>
+    <body>
+        @contents[0]
+        @contents[1]
+        @contents[2]   
+        @contents[3] 
+    </body>
+    </html>
+
+}

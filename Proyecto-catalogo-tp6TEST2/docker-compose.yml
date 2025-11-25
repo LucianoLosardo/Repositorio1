@@ -1,0 +1,38 @@
+version: '3.8'
+
+services:
+  database:
+    image: postgres:15
+    container_name: db_container_catalogo
+    environment:
+      - POSTGRES_DB=${POSTGRES_DB}
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+      
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      #    Monta tus archivos SQL para que se ejecuten al iniciar
+      #    Asume que tu `docker-compose.yml` está en 'my_sqlc_project/'
+      #    y tus archivos están en 'db/schema/' y 'db/queries/'.
+      #    Ajusta las rutas si es necesario.
+      - ./bd/schema/schema.sql:/docker-entrypoint-initdb.d/1_schema.sql
+    ports:
+      - "5432:5432"
+  app:
+    container_name: app_contenedor_catalogo
+    build: .
+    ports: 
+      - "8080:8080"
+    environment:
+      - DB_HOST=database
+      - DB_PORT=5432
+      - DB_USER=${POSTGRES_USER}
+      - DB_PASSWORD=${POSTGRES_PASSWORD}
+      - DB_NAME=${POSTGRES_DB}
+      - APP_PORT=3000
+    depends_on:
+      - database
+    restart: unless-stopped
+
+volumes:
+  postgres_data:

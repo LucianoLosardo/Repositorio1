@@ -1,0 +1,47 @@
+package views
+
+
+import (
+    bd "catalogo.com/proyecto-catalogo/bd/sqlc"
+    "strconv"
+)
+
+templ ArticuloList(articulos []bd.Articulo) {
+    
+<div class="containerTabla" id="tablaArticulos">
+    <h2>Artículos</h2> 
+    <table class="tabla">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Título</th>
+                <th>Descripción</th>
+                <th>Imagen</th>
+                <th>Eliminar</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            for _, articulo := range articulos {
+                <tr class="fila">
+                    <td >{ articulo.ID }</td>
+                    <td>{ articulo.Titulo }</td>
+                    <td>{ articulo.Descripcion }</td>
+                    <td>
+                        <img src={ articulo.Imagen } alt="Imagen del artículo" class="imagen-articulo">
+                    </td>
+                    <td>
+                        <button hx-delete={"/articulos/" + strconv.Itoa(int(articulo.ID))}  
+                                hx-confirm="¿Seguro que querés eliminar este artículo?" 
+                                hx-target="#tablaArticulos" 
+                                hx-swap="outerHTML" 
+                                type="submit" 
+                                class="btnEliminar">Eliminar</button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+}
+
